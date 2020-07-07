@@ -1,26 +1,36 @@
-import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import React, { Component } from "react";
+import { connect } from "react-redux";
+import { bindActionCreators } from "redux";
+import { fetchClientsInfo } from "./services/clientsInfoAction";
+import Table from "./components/Table";
+import "./App.css";
 
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+const mapStateToProps = (state) => {
+  return {
+    clients: state.actionMap.clientsInfo
+  
+  };
+};
+
+const mapDispatchToProps = (dispatch) => {
+  return {
+    fetchClientsInfo: bindActionCreators(fetchClientsInfo, dispatch),
+  };
+};
+
+class App extends Component {
+  componentDidMount() {
+    this.props.fetchClientsInfo();
+  }
+
+  render() {
+    console.log(this.props);
+    return (
+      <div>
+        <Table data={this.props.clients} />
+      </div>
+    );
+  }
 }
 
-export default App;
+export default connect(mapStateToProps, mapDispatchToProps)(App);
