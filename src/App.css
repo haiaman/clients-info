@@ -1,9 +1,9 @@
 .content {
   border-collapse: collapse;
-  margin: 30px 30px;
+  margin: 25px 10px;
   font-size: 0.9em;
-  width: 70%;
-  height: 80px;
+  width: 80%;
+  height: 50px;
   border-radius: 5px 5px 0 0;
   overflow: hidden;
   box-shadow: 0 0 20px rgb(0, 0, 0, 0.15);
@@ -27,15 +27,14 @@
   color: #009879;
 }
 tr:hover {
-  background-color: #f5f5f5;
+  background-color: #d0cdd8;
 }
-tr:nth-child(even) {
-  background-color: #f2f2f2;
+tr:nth-of-type(even) {
+  background-color: #e4d6d6;
 }
 .expand {
-  padding-left: 20px;
+  padding-left: 25px;
 }
-/*.content tbody,
-tr:last-of-type{
-  border-bottom: 2px solid #009879;
-}*/
+.content tbody tr:last-of-type {
+  border-bottom: 0 px solid #d7e0de;
+}

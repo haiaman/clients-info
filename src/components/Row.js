@@ -24,10 +24,10 @@ class Row extends Component {
     const clickCallback = () => this.handleRowClick(item.id);
     const itemRows = [
       <tbody>
-        <tr onClick={clickCallback} key={"row-data-" + item.id}>
-          <td key={"col-" + item.id}>{item.id}</td>
-          <td key={"col-" + item.name}>{item.name}</td>
-          <td key={"col-" + item.age}>{item.age}</td>
+        <tr onClick={clickCallback} key={item.id}>
+          <td>{item.id}</td>
+          <td>{item.name}</td>
+          <td>{item.age}</td>
         </tr>
       </tbody>,
     ];
@@ -36,16 +36,13 @@ class Row extends Component {
       itemRows.push(
         <tbody>
           <tr key={"row-expanded-" + item.id}>
-            <th key={"col-detail"}>
-              {
-                <div className="expand">
-                  Company {item.additionalInfo.company}
-                </div>
-              }
+            <div className="expand">
+              {<div>Company: {item.additionalInfo.company}</div>}
 
-              {<div className="expand">Email {item.additionalInfo.email}</div>}
-              {<div className="expand">Phone {item.additionalInfo.phone}</div>}
-            </th>
+              {<div>Email: {item.additionalInfo.email}</div>}
+              {<div>Phone: {item.additionalInfo.phone}</div>}
+              {<div>Address: {item.additionalInfo.address}</div>}
+            </div>
           </tr>
         </tbody>
       );
